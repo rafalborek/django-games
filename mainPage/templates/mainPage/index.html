@@ -1,0 +1,23 @@
+{% extends "mainPage/base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container">
+	<div class="jumbotron">
+	  <h1>Hi {{ user.username }}</h1>
+	  <p>Choose the game you want to play</p>
+	  <p><a class="btn btn-primary btn-lg" href="{% url 'games:gomoku' %}" role="button">Gomoku</a></p>
+	  <p><a class="btn btn-primary btn-lg" href="{% url 'games:bridge' %}" role="button">Bridge</a></p>
+	</div>
+</div>
+{% else %}
+<div class="container">
+	<div class="jumbotron">
+	  <h1>Hi!</h1>
+	  <p>To see games log in or sign up</p>
+	  <p><a class="btn btn-primary btn-lg" href="{% url 'Users:login' %}" role="button">Log In</a> <a class="btn btn-primary btn-lg" href="{% url 'Users:register' %}" role="button">Sign Up</a></p>
+	</div>
+</div>
+{% endif %}
+{% endblock content %}
+
+

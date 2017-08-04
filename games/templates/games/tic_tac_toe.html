@@ -1,0 +1,41 @@
+{% extends "mainPage/base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="container-fluid">
+<div class ="clearfix margin-game-buttons">
+	<button type="button" id="player1" class="btn btn-primary btn-lg" disabled>{{ namePlayer1 }}</button>
+	<button type="button" id="player2" class="btn btn-primary btn-lg" disabled>{{ namePlayer2 }}</button>
+	<button type="button" id="startGame" class="btn btn-primary btn-lg" disabled>Start</button>
+	<button type="button" id="resign" class="btn btn-primary btn-lg pull-right">Resign</button>
+</div>
+	<div class="row">
+		<div class="col-xs-12 col-md-5 col-md-offset-3">
+			<div class="game-board">
+				{% for i in n %}
+					{% for j in n %}
+						<div id="cell-{{i}}-{{j}}" class="cell"></div>
+					{% endfor %}
+				{% endfor %}
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-4">
+		{% include "games/chat.html" %}
+		</div>
+	</div>
+</div>
+
+
+{% else %}
+<p>Please log in</p>
+{% endif %}
+{% endblock content %}
+
+
+
+{% block otherScripts %}
+{% load static %}
+<script src="{% static 'games/django_csrf.js' %}"></script>
+<script src="{% static 'games/tic_tac_toe.js' %}"></script>
+<script src="{% static 'games/chat.js' %}"></script>
+{% endblock otherScripts %}

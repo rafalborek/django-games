@@ -1,0 +1,18 @@
+    <div id="chat-body" class="panel panel-default">
+        <div class="panel-heading">Chat - Room {{room.id}}</div>
+        <div id="all-message" class="panel-body scrolling-chat">
+            <ul id="message-list" class="list-group">
+                    <li class="text-right list-group-item break-text">...</li>
+            </ul>
+        </div>
+    </div>
+
+    <form id="form-to-send-data" method="post" action="/addMessagesToChat/">
+    	{% csrf_token %}
+        <div class="input-group">
+            <input type="text" id="message-to-send" class="form-control"/>
+            <span class="input-group-btn">
+                <input class="btn btn-default" id="send-chat" type="submit" value="Send"/>
+            </span>
+        </div>
+    </form>

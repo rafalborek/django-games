@@ -1,0 +1,11 @@
+{% for obj in usersOnline %}
+	<tr>
+        <td>{{obj.user.username}}</td>
+        <td>{{obj.room}}</td>
+	</tr>
+{% empty %}
+    <tr>
+    	<td>...<td>
+    	<td>...<td>
+    <tr>
+{% endfor %}

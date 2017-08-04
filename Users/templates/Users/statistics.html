@@ -1,0 +1,33 @@
+{% extends "mainPage/base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+
+	<div class="container">
+		<div class="jumbotron">
+		  {% if not u and not u2 %}
+		  <h2>Hi!</h2>
+		  {% endif %}
+		  {% if u %}
+		  <h2>Gomoku: </h2>
+		  <p>Wins: {{ u.wins }}</p>
+		  <p>Losses: {{ u.losses }}</p>
+		  {% endif %}
+		  {% if u2 %}
+		  <h2>Bridge: </h2>
+		  <p>Wins: {{ u2.wins }}</p>
+		  <p>Losses: {{ u2.losses }}</p>
+		  {% endif %}
+		</div>
+	</div>
+
+
+{% else %}
+<div class="container">
+	<div class="jumbotron">
+	  <h2>Please log in</h2>
+	</div>
+</div>
+{% endif %}
+{% endblock content %}
+
+

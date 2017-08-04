@@ -1,0 +1,13 @@
+{% for obj in rooms %}
+	<tr>
+        <td>{{obj.id}}</td>
+        <td>{{obj.num_online}}</td>
+        <td><a class="btn btn-primary btn-md" href="{% url 'games:bridgeJoinGame' obj.id %}" role="button">Join</a></td>
+	</tr>
+{% empty %}
+    <tr>
+    	<td>...<td>
+    	<td>...<td>
+    	<td>...<td>
+    <tr>
+{% endfor %}

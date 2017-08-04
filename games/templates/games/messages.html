@@ -1,0 +1,9 @@
+{% for obj in messages %}
+    {% if obj.user == request.user %}
+        <li class="text-right list-group-item">{{obj.user}}: {{ obj.message }}</li>
+    {% else %}
+        <li class="text-left list-group-item">{{obj.user}}: {{ obj.message }}</li>
+    {% endif %}
+{% empty %}
+    <li class="text-right list-group-item">Nothing here...</li>
+{% endfor %}

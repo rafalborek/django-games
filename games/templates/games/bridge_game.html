@@ -1,0 +1,17 @@
+{% extends "mainPage/base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+
+ {% include "games/bridge_player_list.html" %} 
+
+{% else %}
+<p>Please log in</p>
+{% endif %}
+{% endblock content %}
+
+{% block otherScripts %}
+{% load static %}
+<script src="{% static 'games/bridge_player_list.js' %}"></script>
+{% endblock otherScripts %}
+
+

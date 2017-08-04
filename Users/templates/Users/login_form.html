@@ -1,0 +1,23 @@
+{% extends "mainPage/base.html" %} 
+{% block title %}Log In {% endblock title %} 
+{% block content %}
+
+
+
+<div class="container">
+<div class="panel panel-primary">
+<div class="panel-heading">Log In</div>
+<div class="panel-body">
+<form class="form-horizontal"  action="{% url 'Users:login' %}" method="post">
+	{% csrf_token %}
+    {% include "Users/form_template.html" %}
+    <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+            <button type="submit" class="btn btn-primary">Log In</button>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+</div>
+{% endblock content %}

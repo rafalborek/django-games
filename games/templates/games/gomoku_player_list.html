@@ -1,0 +1,36 @@
+<div class="container-fluid">
+<a class="btn btn-primary btn-lg" href="{% url 'games:gomokuGame' %}" role="button">New Room</a>
+{% if room != None %}
+<a class="btn btn-primary btn-lg" href="{% url 'games:gomokuJoinGame' room.id %}" role="button">Room {{ room.id }}</a>
+{% endif %}
+
+	<div class="row">
+		<div class="table-responsive col-sm-6">
+			<table class="table table-striped">
+			    <thead>
+			      <tr>
+			        <th>Rooms</th>
+			        <th>Online</th>
+			        <th></th>
+			      </tr>
+			    </thead>
+			    <tbody id="rooms">
+			
+			    </tbody>
+			</table>
+		</div>
+		<div class="table-responsive col-sm-6">
+			<table class="table table-striped">
+			    <thead>
+			      <tr>
+			        <th>User</th>
+			        <th>Room</th>
+			      </tr>
+			    </thead>
+			    <tbody id="playersOnline">
+			
+			    </tbody>
+			</table>
+		</div>
+	</div>
+</div>
